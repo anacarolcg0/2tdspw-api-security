@@ -5,6 +5,7 @@ import br.com.fiap._2tdspwapisecurity.dto.RegisterDTO;
 import br.com.fiap._2tdspwapisecurity.model.User;
 import br.com.fiap._2tdspwapisecurity.repository.UserRepository;
 import jakarta.validation.Valid;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,10 +26,10 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthDTO authDTO) {
-        var userPad = new UsernamePasswordAuthenticationToken(
+        var userPwd = new UsernamePasswordAuthenticationToken(
                 authDTO.username(),
                 authDTO.password());
-        var auth = this.authenticationManager.authenticate(userPad);
+        //var auth = this.authenticationManager.authenticate(userPwd);
         return ResponseEntity.ok().build();
     }
 
