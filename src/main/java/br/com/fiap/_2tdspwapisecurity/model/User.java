@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name ="tb_user")
+@Table(name = "tb_user")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -19,7 +19,9 @@ public class User implements UserDetails {
     private String password;
     private UserRole role;
 
-    public User(String username, UserRole role, String password) {
+    public User() {}
+
+    public User(String username, String password, UserRole role) {
         this.username = username;
         this.password = password;
         this.role = role;
