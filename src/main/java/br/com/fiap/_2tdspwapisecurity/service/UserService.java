@@ -59,9 +59,8 @@ public class UserService {
     @CacheEvict(value = "users", key = "#id")
     public void deleteUser(UUID id) {
         userRepository.deleteById(id);
-        //(um ou outro método)
         cleanCacheOfAllUsers();
-        //cleanAllUsersFromCache();
+        //cleanAllUsersFromCache(); //(um ou outro)
     }
 
     // Métodos auxiliares do CacheEvict
